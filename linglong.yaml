@@ -1,0 +1,29 @@
+version: "1"
+
+package:
+  id: io.github.EnterpriseOptimization
+  name: EnterpriseOptimization
+  version: 0.0.0.1
+  kind: app
+  description: |
+    Program for optimizing production line of a certain enterprise
+
+command:
+  - /opt/apps/io.github.EnterpriseOptimization/files/bin/EnterpriseOptimization
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/wjyrich/EnterpriseOptimization.git
+    version: master
+    commit: ce6ec9f13181afc645d2ec972561e5d74d594c0a
+
+build: |
+  cd /project/linglong/sources/EnterpriseOptimization.git
+  mkdir -p build
+  cd build
+  cmake .. \
+        -DCMAKE_INSTALL_PREFIX=${PREFIX}
+  cmake --build . --target install -j$(nproc --all)
