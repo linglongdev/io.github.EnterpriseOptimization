@@ -1,0 +1,4 @@
+locale=en_US
+maximized=0
+resolutionX=1280
+resolutionY=720
